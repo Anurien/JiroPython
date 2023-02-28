@@ -4,9 +4,9 @@ services:
     image: postgres:13
     container_name: dam22_postgresql2
     environment:
-      - POSTGRES_DB=postgres2
-      - POSTGRES_PASSWORD=odoo2
-      - POSTGRES_USER=odoo2
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_USER=odoo
     ports:
       - "5432:5432"
     volumes:
@@ -14,6 +14,9 @@ services:
   odoo:
    image: odoo:14.0
    container_name: dam22_odoo2
+   volumes:
+     - ./odoo:/var/lib/odoo
+  
    ports:
      - "8069:8069"
    depends_on:
